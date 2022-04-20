@@ -29,6 +29,8 @@ namespace WindowsFormsDemo
                 if(user.UserName == txtUserName.Text && user.Password== txtPassword.Text)
                 {
                     MessageBox.Show("Valid User");
+                    DetailsForm detailsForm = new DetailsForm();
+                    detailsForm.Show();
                 }
                 else
                 {
