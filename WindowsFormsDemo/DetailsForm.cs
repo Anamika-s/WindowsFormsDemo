@@ -16,5 +16,12 @@ namespace WindowsFormsDemo
         {
             InitializeComponent();
         }
+
+        private void DetailsForm_Load(object sender, EventArgs e)
+        {
+            label1.Text = LoginForm.temp.UserId.ToString();
+            label2.Text = LoginForm.temp.UserName;
+
+        }
     }
 }

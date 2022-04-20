@@ -12,6 +12,7 @@ namespace WindowsFormsDemo
 {
     public partial class LoginForm : Form
     {
+        public static User temp;
         public LoginForm()
         {
             InitializeComponent();
@@ -24,19 +25,32 @@ namespace WindowsFormsDemo
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            foreach(var user in RegistrationForm.listUsers)
+            int flag = 0;
+            foreach (var user in RegistrationForm.listUsers)
             {
-                if(user.UserName == txtUserName.Text && user.Password== txtPassword.Text)
+                if (user.UserName == txtUserName.Text && user.Password == txtPassword.Text)
                 {
-                    MessageBox.Show("Valid User");
-                    DetailsForm detailsForm = new DetailsForm();
-                    detailsForm.Show();
+                    temp = new User();
+                    temp = user;
+                    flag = 1;
+                    break;
                 }
+            }
+            if(flag==1)
+            {
+                MessageBox.Show("Valid User");
+                DetailsForm detailsForm = new DetailsForm();
+                detailsForm.Show();
+            }
                 else
                 {
                     MessageBox.Show("Invalid User");
                 }
             }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
