@@ -22,12 +22,14 @@ namespace WindowsFormsDemo
             if (txtChoice.Text == "1")
             {
                 LoginForm loginForm = new LoginForm();
+                loginForm.MdiParent = this;
                 loginForm.Show();
 
             }
             else if (txtChoice.Text == "2")
             {
                 RegistrationForm registrationForm = new RegistrationForm();
+                registrationForm.MdiParent = this;
                 registrationForm.Show();
             }
             else
